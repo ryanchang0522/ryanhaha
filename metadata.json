@@ -1,0 +1,8 @@
+{
+  "name": "KeepEat: Your Seamless Kitchen Companion",
+  "description": "KeepEat is the ultimate smart food inventory solution designed to end food waste and foster better shared meal planning. It uses AI vision to turn the chore of kitchen management into an intuitive, collaborative experience.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
