@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { getRecipeSuggestion } from '../services/geminiService';
 import { FoodItem } from '../types';
 import Spinner from './Spinner';
+import { CloseIcon } from './Icons';
 
 interface RecipeSuggestionModalProps {
   item: FoodItem;
@@ -43,7 +43,9 @@ const RecipeSuggestionModal: React.FC<RecipeSuggestionModalProps> = ({ item, onC
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold">Eat {item.name} Together!</h2>
-            <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+                <CloseIcon className="h-6 w-6" />
+            </button>
           </div>
           {isLoading ? (
             <div className="flex justify-center items-center h-48">
