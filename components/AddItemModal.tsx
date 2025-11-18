@@ -158,8 +158,12 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ onClose, onAddItem }) => {
         setInfo("AI 已填入辨識結果，請確認後儲存。");
       }
       setActiveTab('manual');
-    } catch(e) {
-      setError('AI 分析時發生錯誤，請重試或手動輸入。');
+    } catch(e: any) {
+        if (e?.message?.includes("API key not found")) {
+            setError("請在設定中提供您的 Gemini API 金鑰。");
+        } else {
+            setError('AI 分析時發生錯誤，請重試或手動輸入。');
+        }
     } finally {
       setIsLoading(false);
     }
@@ -208,8 +212,12 @@ const AddItemModal: React.FC<AddItemModalProps> = ({ onClose, onAddItem }) => {
             setError("AI 無法辨識食材或有效日期，請手動輸入。");
         }
         setActiveTab('manual');
-    } catch (e) {
-        setError('AI 分析時發生錯誤，請重試或手動輸入。');
+    } catch (e: any) {
+        if (e?.message?.includes("API key not found")) {
+            setError("請在設定中提供您的 Gemini API 金鑰。");
+        } else {
+            setError('AI 分析時發生錯誤，請重試或手動輸入。');
+        }
     } finally {
         setIsLoading(false);
     }
